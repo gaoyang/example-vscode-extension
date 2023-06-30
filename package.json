@@ -9,13 +9,19 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "*"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "example-extension.helloWorld",
-        "title": "Hello World"
+        "command": "example-extension.showInformationMessage",
+        "title": "Show Information Message"
+      },
+      {
+        "command": "example-extension.openFolder",
+        "title": "Open Folder"
       }
     ]
   },
