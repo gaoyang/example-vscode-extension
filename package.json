@@ -22,6 +22,10 @@
       {
         "command": "example-extension.openFolder",
         "title": "Open Folder"
+      },
+      {
+        "command": "example-extension.updateWorkspaceFolders",
+        "title": "Update Workspace Folders"
       }
     ]
   },

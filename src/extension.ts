@@ -22,9 +22,23 @@ export function activate(context: vscode.ExtensionContext) {
         })
     }),
 
-    vscode.commands.registerCommand('example-extension.showInformationMessage', () => {
-      vscode.window.showInformationMessage('Hello World from example-extension!')
-    }),
+    vscode.commands.registerCommand('example-extension.updateWorkspaceFolders', () => {
+      vscode.window
+        .showOpenDialog({
+          canSelectFiles: false,
+          canSelectFolders: true,
+          canSelectMany: false
+        })
+        .then(folderUri => {
+          if (folderUri && folderUri[0]) {
+            vscode.workspace.updateWorkspaceFolders(
+              vscode.workspace.workspaceFolders ? vscode.workspace.workspaceFolders.length : 0,
+              null,
+              { uri: folderUri[0] }
+            )
+          }
+        })
+    })
   ]
 
   commands.forEach(command => context.subscriptions.push(command))
